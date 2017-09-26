@@ -4,7 +4,13 @@ Thumbs.db
 html
 Application/Runtime
 Application/Runtime/*
-/Application/Common/Conf/config.php
-/Application/Data2/Conf/config.php
-
+Application/Common/Conf/config.php
+Application/Data2/Conf/config.php
+ThinkPHP/Library/Org/OAuth/*
+Application/Kbox/*
+Application/Oauth/*
+Application/Oauthai/*
+Application/Oauthmanage/*
+Application/Passport/*
+Application/Common/Analysisclass/*
 /index.php
