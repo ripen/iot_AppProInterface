@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="stylesheet" href="__PUBLIC__/Ios/style/flexible.css" />
+		<script src="__PUBLIC__/Ios/style/flexible.js"></script>
+		<title>检测报告</title>
+		<link href="__PUBLIC__/Ios/style/font-awesome/css/font-awesome.css" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" href="__PUBLIC__/Ios/style/health.css" />
+
+	</head>
+
+	<body>
+
+		<div class="main">
+
+		<notempty name="result">
+			<div class="reportbox">
+				<h2>结果分析</h2>
+				<dl <if condition="($result.status eq 0)"> class="good"</if>>
+					<dt><i class="fa fa-exclamation-circle"></i>{$result.title}</dt>
+					<dd>
+						<p>
+							结果值：
+							<span>{$result.data.tests} 
+								<if condition="($result.status eq 1)"> 
+								<i class="fa fa-arrow-down"></i>
+								<elseif condition="($result.status eq 2)" />
+								<i class="fa fa-arrow-up"></i>
+								</if>
+							</span>
+						</p>
+						<p>正常参考值：{$result.data.0}</p>
+						<p>临床意义：</p>
+						<p>{$result.clinical|default="暂无"}</p>
+						<p>参考建议：</p>
+						<p>{$result.result|default="暂无"}</p>
+						<p>危险因素：</p>
+						<p>{$result.danger|default="暂无"}</p>
+					</dd>
+				</dl>
+
+			</div>
+		</notempty>
+		</div>
+<!--main end--> 
+</body>
+</html>

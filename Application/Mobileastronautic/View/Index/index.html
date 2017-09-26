@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>健康档案</title>
+<link rel="stylesheet" href="__PUBLIC__/{$Think.MODULE_NAME}/css/custom.css" />
+<script type="text/javascript" src="__PUBLIC__/{$Think.MODULE_NAME}/js/jquery-1.10.1.min.js"></script>
+</head>
+<body>
+<div class="toptitle">
+  <p>健康档案</p>
+</div>
+<section class="icons">
+  <dl>
+ <volist name="data" id="vo" offset="0" key="key" length='3'>
+    <dd> <a href="/{$Think.MODULE_NAME}/Index/getbloodsugarlist"> <img src="__PUBLIC__/{$Think.MODULE_NAME}/img/icons/icon_0{$key}.png" />
+      <p>{$vo.name}</p>
+      </a> </dd>    
+   </volist>      
+  </dl>
+  <!--<dl>
+    <dd> <a href="data.html"> <img src="__PUBLIC__/{$Think.MODULE_NAME}/img/icons/icon_04.png" />
+      <p>尿微量白蛋白</p>
+      </a> </dd>
+    <dd> <a href="data.html"> <img src="__PUBLIC__/{$Think.MODULE_NAME}/img/icons/icon_05.png" />
+      <p>胆固醇数据</p>
+      </a> </dd>
+    <dd> <a href="data.html"> <img src="__PUBLIC__/{$Think.MODULE_NAME}/img/icons/icon_06.png" />
+      <p>甘油三酯</p>
+      </a> </dd>
+  </dl>-->
+</section>
+<div class="btnline">
+	<!--  <p><a href="#" class="btn-blue">同步数据</a></p>-->
+ </div>
+ <include file="./Application/Mobileastronautic/View/Index/footer.html" />
+</body>
+</html>

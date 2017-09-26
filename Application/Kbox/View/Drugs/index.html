@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>原始数据查看</title>
+		<script type="text/javascript" src="__PUBLIC__/Kbox/js/jquery.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/Kbox/js/util.js" ></script>
+		<script>
+			$(document).ready(function() {
+				
+				var timer = setInterval(register, 5000);
+				
+				$("#targetTable tr:even").css("background","#ddd");
+			});
+			function register() {
+				location.reload(true);
+			}
+		</script>
+	</head>
+
+	<style type="text/css">
+	#targetTable { border-right:1px solid #f4f4f4; border-top:1px solid #f4f4f4;box-shadow: 0px 4px 10px #ddd;}
+	#targetTable td,#targetTable th { font-family:"微软雅黑"; line-height:50px; text-align:center; font-size:14px;border-left:1px solid #f4f4f4; border-bottom:1px solid #f4f4f4;}
+	#targetTable th { background:url(__PUBLIC__/Kbox/img/bg.gif) repeat-x; height:33px; line-height:33px; color:#000; font-size:18px; font-weight:normal;}
+	#targetTable td span { display:block; padding:0 0 0 50px; text-align:left; }
+	#targetTable td span.nodo { background:#efcccc url(__PUBLIC__/Kbox/img/Error.png) no-repeat 20px 11px; color:#F00;}
+	#targetTable td span.doing { background:url(__PUBLIC__/Kbox/img/process.gif) no-repeat 0 -7px; color:#00F; padding:0 0 0 60px;}
+	#targetTable td span.done { background:#d9ffd8 url(__PUBLIC__/Kbox/img/great.gif) no-repeat 20px 13px; color:#093;}
+	</style>
+	
+	
+	<body>
+		
+		<table id="targetTable" width="100%" cellpadding="0" cellspacing="0">  
+            <tr id='first'>  
+                <th width='9%'>序号</th>  
+                <th width='200'>入库时间</th>  
+                <th>原始数据</th>  
+            </tr>
+			
+			<empty name="result">
+            	<tr><td colspan="3">未查询到数据</td></tr>
+            <else />	
+            	
+            	<foreach name="result" item="vo" key="key" >
+            	<tr>
+                	<td width="5%">{$vo.id}</td>
+                    <td width="15%">{$vo.addtime}</td>
+                    <td >{$vo.data}</td>
+                </tr>
+                </foreach>  
+           </empty>   
+			
+        </table>
+	</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/util.js" ></script>
+		<script>
+			$(document).ready(function() {
+				
+				var timer = setInterval(register, 5000);
+			});
+			function register() {
+				$("tr:gt(0)").remove();
+				var para;
+				ajaxPost("http://api.yicheng120.com/demo/admin/select.php", para, successfulcb, errorcb);
+			}
+			function successfulcb(returnJson){
+				var a=JSON.parse(returnJson);
+				var tb = document.getElementById("targetTable");
+      				for(var i=0;i<a.length;i++){
+      					console.log(a[0]);
+      					var b=a[i];
+      					for(var t=0;t<1;t++){
+//    						var a0=b[0]==1?'测量完成':'正在测量';
+//    						var a1=b[1]==1?'测量完成':'正在测量'; 
+      						
+							
+							var a2 = b[2] == 0 ? '<td width=\"9%\"><span class="done">测量完成</span></td>' : b[2]==2?'<td width=\"9%\"><span class="doing">正在测量</span></td>':'<td width=\"9%\" ><span class="nodo">未测量</span></td>';
+							var a3 = b[3] == 0 ? '<td width=\"9%\"><span class="done">测量完成</span></td>' : b[3]==2?'<td width=\"9%\"><span class="doing">正在测量</span></td>':'<td width=\"9%\" ><span class="nodo">未测量</span></td>';
+							
+							var a4 = b[4] == 0 ? '<td width=\"9%\"><span class="done">测量完成</span></td>' : b[4]==2?'<td width=\"9%\"><span class="doing">正在测量</span></td>':'<td width=\"9%\" ><span class="nodo">未测量</span></td>';
+							var a5 = b[5] == 0 ? '<td width=\"9%\"><span class="done">测量完成</span></td>' : b[5]==2?'<td width=\"9%\"><span class="doing">正在测量</span></td>':'<td width=\"9%\" ><span class="nodo">未测量</span></td>';
+							
+							var a6 = b[6] == 0 ? '<td width=\"9%\"><span class="done">测量完成</span></td>' : b[6]==2?'<td width=\"9%\"><span class="doing">正在测量</span></td>':'<td width=\"9%\" ><span class="nodo">未测量</span></td>';
+							var a7 = b[7] == 0 ? '<td width=\"9%\"><span class="done">测量完成</span></td>' : b[7]==2?'<td width=\"9%\"><span class="doing">正在测量</span></td>':'<td width=\"9%\" ><span class="nodo">未测量</span></td>';
+							
+							var a8 = b[8] == 0 ? '<td width=\"9%\"><span class="done">测量完成</span></td>' : b[8]==2?'<td width=\"9%\"><span class="doing">正在测量</span></td>':'<td width=\"9%\" ><span class="nodo">未测量</span></td>';
+							var a9 = b[9] == 0 ? '<td width=\"9%\"><span class="done">测量完成</span></td>' : b[9]==2?'<td width=\"9%\"><span class="doing">正在测量</span></td>':'<td width=\"9%\" ><span class="nodo">未测量</span></td>';
+							
+							var a10 = b[10] == 'wc' ? '<td width=\"9%\"><span class="done">测量完成</span></td>' : b[10]=='d' ? '<td width=\"9%\"><span class="nodo">等待测量</span></td>':'<td width=\"9%\" ><span class="doing">正在测量</span></td>';
+							
+							
+      						var abc= "<table border=\"1px\" width=\"100%\">  <tr border=\"1px\"><td width=\"9%\">"+b[0]+" <a href='/demo/poweron.php?del=yes&id="+b[0]+"'>删除</td><td width=\"9%\">"+b[1]+"</td>"+a2+a3+a4+a5+a6+a7+a8+a9+a10+"</tr></table>";
+							
+							var name = b['name'] ? b['name'] : b[1];
+							var abc	=	'<td width="9%">'+b[0]+'</td>'+'<td width="9%">'+name+'</td>'+a2+a3+a4+a5+a6+a7+a8+a9+a10;
+							
+							$("#first").after('<tr>'+abc+'</tr>');
+      					}
+      					
+				
+				}
+			}
+			function errorcb(){}
+		</script>
+	</head>
+
+	<style type="text/css">
+	#targetTable { border-right:1px solid #f4f4f4; border-top:1px solid #f4f4f4;box-shadow: 0px 4px 10px #ddd;}
+	#targetTable td,#targetTable th { font-family:"微软雅黑"; line-height:50px; text-align:center; font-size:14px;border-left:1px solid #f4f4f4; border-bottom:1px solid #f4f4f4;}
+	#targetTable th { background:url(img/bg.gif) repeat-x; height:33px; line-height:33px; color:#000; font-size:18px; font-weight:normal;}
+	#targetTable td span { display:block; padding:0 0 0 50px; text-align:left; }
+	#targetTable td span.nodo { background:#efcccc url(img/Error.png) no-repeat 20px 11px; color:#F00;}
+	#targetTable td span.doing { background:url(img/process.gif) no-repeat 0 -7px; color:#00F; padding:0 0 0 60px;}
+	#targetTable td span.done { background:#d9ffd8 url(img/great.gif) no-repeat 20px 13px; color:#093;}
+	</style>
+	
+	
+	<body>
+		
+		<table id="targetTable" width="100%" cellpadding="0" cellspacing="0">  
+            <tr id='first'>  
+                <th>序号</th>  
+                <th>用户名</th>  
+                <th>温度</th>  
+                <th>体重</th>  
+                <th>心电</th>
+                <th>血脂</th>
+                <th>尿液</th>
+                <th>血氧</th>
+                <th>血糖</th>
+                <th>尿酸</th>
+                <th>状态</th>
+            </tr>
+        </table>
+	</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>登录</title>
+<link rel="stylesheet" href="__PUBLIC__/{$Think.MODULE_NAME}/css/custom.css" />
+<script type="text/javascript" src="__PUBLIC__/{$Think.MODULE_NAME}/js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/{$Think.MODULE_NAME}/js/loginreg.js"></script>
+
+</head>
+<body>
+<div class="toptitle">
+  <p>登录</p>
+</div>
+<section class="main padbox">  
+    <form action="" name="form" method="POST">
+    	<input type="text" name="mobile" id="mobile" class="inputx" placeholder="请输入您的手机号" />
+        <input type="password" name="password" id="password" placeholder="请输入您的密码" class="inputx" />
+        <div id="tip"></div>
+        <input type="button" id="denglu" class="btn-blue" value="登录" />
+    </form>
+    <p class="tips">如果您还没有账号，可以进行<a href="/{$Think.MODULE_NAME}
+/{$Think.CONTROLLER_NAME}/register">快速注册</a></p>
+</section>
+
+<div class="after-nav"></div>
+</body>
+</html>

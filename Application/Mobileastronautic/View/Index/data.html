@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>血糖数据</title>
+<link rel="stylesheet" href="__PUBLIC__/{$Think.MODULE_NAME}/css/custom.css" />
+<script type="text/javascript" src="__PUBLIC__/{$Think.MODULE_NAME}/js/jquery-1.10.1.min.js"></script>
+</head>
+<body>
+<div class="toptitle">
+  <p>血糖数据</p>
+  <a name="back" class="absolute top left" href="/{$Think.MODULE_NAME}/Index/healthrecord"></a> 
+</div>
+<section class="main">
+<table width="100%" border="0" class="datatable">
+  <tr>
+    <th>测试时间</th>
+    <th>血糖值</th>
+    <th>解析结果</th>
+  </tr>
+  <volist name="bloodsugar" id="vo">
+  <empty name="bloodsugar">
+  <tr>
+    <td>暂无数据</td>
+    <td>暂无数据</td>
+    <td>暂无数据</td>
+  </tr>
+  <else />
+  <tr>
+    <td><a href="/{$Think.MODULE_NAME}/Index/bloodsugarinfo/id/{$vo.dataid}">{$vo.datetime}</a></td>
+    <td><a href="/{$Think.MODULE_NAME}/Index/bloodsugarinfo/id/{$vo.dataid}">{$vo.bloodsugar}mmol/L</a></td>
+    <td><a href="/{$Think.MODULE_NAME}/Index/bloodsugarinfo/id/{$vo.dataid}"><if condition=" ($vo.bloodsugar egt 4.6) AND ($vo.bloodsugar lt 8) "><span class="normal">{$vo.conclusion}</span><else /><span class="abnormal">{$vo.conclusion}</span></if></a></td>
+  </tr>
+  </empty> 
+  </volist>
+</table>
+
+
+</section>
+ <include file="./Application/Mobileastronautic/View/Index/footer.html" />
+</body>
+</html>

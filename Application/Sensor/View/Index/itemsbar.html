@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ECharts">
+    <meta name="viewport" content="width=device-width" />
+	<link href="/Public/doc/asset/css/echartsHome.css" rel="stylesheet">
+    <title>信息项目统计-多功能传感器信息化平台</title>
+<style type="text/css">
+	body {
+		margin: 5px;
+	}
+	#main {
+		height:720px;
+	}
+</style>
+<body>
+    <div id="main"></div>
+
+
+
+	<script src="/Public/js/echarts.js"></script>
+
+<script type="text/javascript">
+var itemsdata	= [171,134,175,87,188,102,91,99];
+var itemsname	= [ '血压','血糖','血氧','尿常规','血脂','心电','体重','恒温'];var option = {
+    color: ['#1790cf'],
+	title : {
+		text: '<?php echo date("Y")?>年信息项目统计-多功能传感器信息化平台',
+		subtext:'[截止至 <?php echo date("Y-m-d",time())?>]',
+
+		x:'left',
+		textStyle : {color: '#1790cf',fontSize: 20,},
+		subtextStyle : {color: '#1790cf',fontSize: 16,}
+	},
+    tooltip : {
+        trigger: 'axis',
+        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+        }
+    },
+
+    calculable : true,
+    xAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    yAxis : [
+        {
+            type : 'category',
+			 data : itemsname
+        }
+    ],
+    series : [
+        {
+            name:'检测总量',
+            type:'bar',
+            //itemStyle : { normal: {label : {show: true, position: 'insideRight'}}},
+            data:itemsdata,
+            markPoint : {
+				data : [
+                    {name: itemsname[0], value: itemsdata[0], yAxis: 0, xAxis: itemsdata[0]},
+                    {name: itemsname[1], value: itemsdata[1], yAxis: 1, xAxis: itemsdata[1]},
+                    {name: itemsname[2], value: itemsdata[2], yAxis: 2, xAxis: itemsdata[2]},
+                    {name: itemsname[3], value: itemsdata[3], yAxis: 3, xAxis: itemsdata[3]},
+                    {name: itemsname[4], value: itemsdata[4], yAxis: 4, xAxis: itemsdata[4]},
+                    {name: itemsname[5], value: itemsdata[5], yAxis: 5, xAxis: itemsdata[5]},
+                    {name: itemsname[6], value: itemsdata[6], yAxis: 6, xAxis: itemsdata[6]},
+                    {name: itemsname[7], value: itemsdata[7], yAxis: 7, xAxis: itemsdata[7]}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+
+                ]
+            }
+        }
+    ]
+};
+
+require.config({
+	paths: {
+		echarts: '/Public/doc/slide/js/dist'
+	}
+});
+// 使用
+require(
+	[
+		'echarts',
+		'echarts/chart/bar'
+	],
+	function (ec) {
+		var myChart = ec.init(document.getElementById('main'));
+
+		myChart.setOption(option);
+	}
+);
+</script>
+</body>
+</html>

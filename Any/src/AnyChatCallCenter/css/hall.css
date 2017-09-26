@@ -1,0 +1,62 @@
+#UserListContent 
+{
+	color:#6A2A04;
+	position:relative;
+	width:740px;
+	height:475px;
+	overflow:hidden;
+	font-size:9pt;
+	font-family:arial;
+	padding:12px;
+	overflow-y: auto;
+}
+.UserImg_Holder
+{
+	height:60px;
+	width:50px;
+	padding:5px 0px 5px 0px;
+	float:left;
+}
+.UserImg
+{
+	width:50px; 
+	height:50px; 
+	padding:0px;
+	cursor:pointer;
+}
+.UserInfo
+{
+	width:100%; 
+	height:20px;
+	float:!important;
+	text-align:center;
+}
+.OnLineUser_Div
+{
+	width:190px;
+	height:60px;
+	float:left;
+	margin:15px;
+	padding:15px 10px 15px 10px;
+	background-color:#FAFADD;
+	cursor:pointer;
+}
+.UserInfo_Holder
+{
+	width:120px; 
+	height:60px; 
+	float:left;
+	padding:0px;
+}
+#SessionPrompt_Div
+{
+	width: 200px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	position: absolute;
+	display: none;
+	border-style: solid;
+	border-width: 1px;
+	background-color: #666666;
+}

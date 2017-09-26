@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ECharts">
+    <meta name="viewport" content="width=device-width" />
+	<link href="/Public/doc/asset/css/echartsHome.css" rel="stylesheet">
+    <title>系统设备和信息量统计-多功能传感器信息化平台</title>
+<style type="text/css">
+	body {margin: 5px;}
+	#main {height:720px;}
+</style>
+<body>
+    <div id="main"></div>
+
+	<script src="/Public/js/echarts.js"></script>
+
+<script type="text/javascript">
+var itemsname	= [ '血压','血糖','血氧','尿常规','血脂','心电','体重','恒温'];
+var datename	= ['一月份','二月份','三月份','四月份','五月份','六月份','七月份','八月份','九月份','十月份','十一月份','十二月份'];
+var typename	= ['开机总量','检测总量'];
+var data1		= [10, 12, 21, 54, 0, 0, 0, 0, 0, 0, 0, 0];
+var data2		= [45, 35, 87, 65, 0, 0, 0, 0, 0, 0, 0, 0];
+
+var option = {
+    color: ['#1790cf','#1c7099'],
+	title : {
+		text: '<?php echo date("Y")?>年系统设备和信息量统计-多功能传感器信息化平台',
+		subtext:'[截止至 <?php echo date("Y-m-d",time())?>]',
+
+		x:'left',
+		textStyle : {color: '#1790cf',fontSize: 20,},
+		subtextStyle : {color: '#1790cf',fontSize: 16,}
+	},
+    tooltip : {
+        trigger: 'axis',
+        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+        }
+    },
+    legend: {
+        data:typename
+    },	
+    calculable : true,
+    xAxis : [{
+            type : 'category',
+            boundaryGap : false,
+            data : datename
+        }],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:typename[0],
+            type:'line',
+            smooth:true,
+            itemStyle: {color:'#1790cf',normal: {areaStyle: {type: 'default'}}},
+            data:data1,
+			markPoint : {
+                data : [
+                    {name: datename[0], value: data1[0], xAxis: 0, yAxis: data1[0]},
+                    {name: datename[1], value: data1[1], xAxis: 1, yAxis: data1[1]},
+                    {name: datename[2], value: data1[2], xAxis: 2, yAxis: data1[2]},
+                    {name: datename[3], value: data1[3], xAxis: 3, yAxis: data1[3]},
+                    {name: datename[4], value: data1[4], xAxis: 4, yAxis: data1[4]},
+                    {name: datename[5], value: data1[5], xAxis: 5, yAxis: data1[5]},
+                    {name: datename[6], value: data1[6], xAxis: 6, yAxis: data1[6]},
+                    {name: datename[7], value: data1[7], xAxis: 7, yAxis: data1[7]},
+                    {name: datename[8], value: data1[8], xAxis: 8, yAxis: data1[8]},
+                    {name: datename[9], value: data1[9], xAxis: 9, yAxis: data1[9]},
+                    {name: datename[10], value: data1[10], xAxis: 10, yAxis: data1[10]},
+                    {name: datename[11], value: data1[11], xAxis: 11, yAxis: data1[11]}
+                ]
+            }
+        },
+        {
+            name:typename[1],
+            type:'line',
+            smooth:true,
+            itemStyle: {color:'#FF0000',normal: {areaStyle: {type: 'default'}}},
+            data:data2,
+			markPoint : {
+                data : [
+                    {name: datename[0], value: data2[0], xAxis: 0, yAxis: data2[0]},
+                    {name: datename[1], value: data2[1], xAxis: 1, yAxis: data2[1]},
+                    {name: datename[2], value: data2[2], xAxis: 2, yAxis: data2[2]},
+                    {name: datename[3], value: data2[3], xAxis: 3, yAxis: data2[3]},
+                    {name: datename[4], value: data2[4], xAxis: 4, yAxis: data2[4]},
+                    {name: datename[5], value: data2[5], xAxis: 5, yAxis: data2[5]},
+                    {name: datename[6], value: data2[6], xAxis: 6, yAxis: data2[6]},
+                    {name: datename[7], value: data2[7], xAxis: 7, yAxis: data2[7]},
+                    {name: datename[8], value: data2[8], xAxis: 8, yAxis: data2[8]},
+                    {name: datename[9], value: data2[9], xAxis: 9, yAxis: data2[9]},
+                    {name: datename[10], value: data2[10], xAxis: 10, yAxis: data2[10]},
+                    {name: datename[11], value: data2[11], xAxis: 11, yAxis: data2[11]}
+                ]
+            }
+        }
+    ]
+};
+                    
+
+require.config({
+	paths: {
+		echarts: '/Public/doc/slide/js/dist'
+	}
+});
+// 使用
+require(
+	[
+		'echarts',
+		'echarts/chart/line'
+	],
+	function (ec) {
+		var myChart = ec.init(document.getElementById('main'));
+
+		myChart.setOption(option);
+	}
+);
+</script>
+</body>
+</html>

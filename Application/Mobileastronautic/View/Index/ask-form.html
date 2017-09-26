@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>咨询</title>
+<link rel="stylesheet" href="__PUBLIC__/{$Think.MODULE_NAME}/css/custom.css" />
+<script type="text/javascript" src="__PUBLIC__/{$Think.MODULE_NAME}/js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/{$Think.MODULE_NAME}/js/loginreg.js"></script>
+</head>
+<body>
+<div class="toptitle">
+  <p>咨询</p>
+  <a name="back" class="absolute top left" href="/{$Think.MODULE_NAME}/Index/bloodsugarinfo/id/{$id}"></a> 
+</div>
+<section class="main">
+	<form action="#" name="form" method="post">
+    	<textarea class="textarea" name="content" id="content" value="" placeholder="请输入您要咨询的问题"></textarea>
+    	<div id="tip"></div>
+    	<input type="hidden" name="bid" id="bid" value="{$id}" />
+        <input type="button" id="sbtn" class="sbtn" value="提交" />
+    </form>
+    
+        
+</section>
+ <include file="./Application/Mobileastronautic/View/Index/footer.html" />
+</body>
+</html>

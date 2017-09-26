@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>个人中心</title>
+<link rel="stylesheet" href="__PUBLIC__/{$Think.MODULE_NAME}/css/custom.css" />
+<script type="text/javascript" src="__PUBLIC__/{$Think.MODULE_NAME}/js/jquery-1.10.1.min.js"></script>
+</head>
+<body>
+<div class="toptitle">
+  <p>个人中心</p>
+  <a name="edit" class="absolute top right" href="/{$Think.MODULE_NAME}/Index/edituserinfo">编辑</a> 
+</div>
+<section class="main whitebox">
+	<div class="baseinfo">
+      <p><span>姓名</span><em>{$user.username}</em></p>
+      <p><span>性别</span><em><if condition="$user.sex eq 1" >男<elseif condition="$user.sex eq 2" />女<else/>暂无</if></em></p>
+      <p><span>身高</span><em><if condition="$user.height neq 0">{$user.height}cm<else />暂无</if></em></p>
+      <p><span>体重</span><em><if condition="$user.weight neq 0 ">{$user.weight}kg<else />暂无</if></em></p>
+      <p><span>出生日期</span><em><if condition="$user.birthday neq '' ">{$user.birthday}<else />暂无</if></em></p>
+      <p><span>文化程度</span><em><if condition="$user.edu neq '' ">{$user.edu}<else />暂无</if></em></p>
+      <p><span>患有疾病</span><em><if condition="$user.disease neq '' ">{$user.disease}<else />暂无</if></em></p>
+    </div>
+</section>
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".btn-blue").click(function(){
+		$(".answerbox").slideDown(300);
+		$(this).hide();
+		return false;
+		})
+	$(".cacel").click(function(){
+		$(".answerbox").slideUp(300);
+		$(".btn-blue").show();
+		})
+	})
+</script>
+ <include file="./Application/Mobileastronautic/View/Index/footer.html" />
+</body>
+</html>

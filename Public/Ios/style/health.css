@@ -1,0 +1,52 @@
+@charset "utf-8";
+/* CSS Document */
+
+a{text-decoration: none; color: inherit; }
+
+h1,h2,h3,h4,h5,h6,p,dl,dd,ul,li{margin: 0;	font-weight: normal;}
+
+ul,li{list-style: none;}
+
+ul{	padding: 0;}
+
+hr{	border: none;margin: 0;	border-top: 2px solid;}
+
+input{font-family: "微软雅黑","microsoft yahei",sans-serif; font-size: inherit; vertical-align: bottom; }
+
+
+
+/* 字体设置 */
+body{margin: 0;	color: #002b39;	font-size:0.5rem; font-family: arial,"微软雅黑","microsoft yahei",sans-serif;	background:#fff;}
+
+
+/* 功能类 */
+.relative{	position: relative;}
+.absolute{	position: absolute;}
+.main { overflow:hidden; zoom:1; width:100%;}
+.baseinfobox { background:#dbe8fe; overflow:hidden; zoom:1; padding:3%;}
+.baseinfobox h3 { color:#000; padding:0 0 0.1rem; font-size:0.5rem; line-height:0.75rem;}
+.baseinfobox h3 span { font-weight:normal; color:#424242; padding:0 0 0 0.4rem; }
+.baseinfobox p { font-size:0.4rem; line-height:0.6rem; color:#57595b;}
+.baseinfobox p span { padding:0 0.5rem 0 0; color:#424242; font-family:Verdana, Geneva, sans-serif; }
+
+.reportbox { overflow:hidden; zoom:1; padding:0 3%;}
+.reportbox h2 { text-align:center; color:#6581d2; font-size:0.6rem; font-weight:bold; line-height:1.5rem;}
+.reportbox p.count { font-size:0.4rem; line-height:0.6rem; padding:0 0 0.4rem; color:#000;}
+.reportbox dl { margin:0 0 0.4rem; border:1px solid #ffd5be; border-radius:0.1rem; -webkit-border-radius:0.1rem; -moz-border-radius:0.1rem;}
+.reportbox dl dt { line-height:1.5rem; font-size:0.6rem; background:#ffd5be; overflow:hidden; zoom:1; color:#fe645b; padding:0 3%;border-top-left-radius:0.1rem;
+border-top-right-radius:0.1rem;}
+.reportbox dl dt i { padding:0 0.2rem 0 0;}
+.reportbox dl dd p span {color:#fe645b; }
+.reportbox dl dd p span i {padding:0 0 0 0.2rem;}
+.reportbox dl dd { padding:3%; overflow:hidden; zoom:1;}
+.reportbox dl dd p { font-size:0.4rem; line-height:0.6rem; padding:0 0 0.2rem; color:#424242;}
+.reportbox dl.good { border:1px solid #69e680;}
+.reportbox dl.good dt { background:#69e680; color:#4cb05f;}
+.reportbox dl.good dd p span { color:#4cb05f;}
+.reportbox h3.table-title {font-size:0.5rem; line-height: 0.75rem; padding:0.1rem 0 0; color:#000;}
+
+.recordtable th,.recordtable td {  font-size:0.4rem; line-height: 0.8rem; text-align: center; border-bottom:1px solid #f4f4f4;}
+.recordtable th { font-weight:normal; background:#f4f4f4; border-left:1px solid #fff;}
+.recordtable th.first { border:0;}
+.recordtable { margin:0 0 0.5rem; border-top:1px solid #f4f4f4; border-left:1px solid #f4f4f4; border-right:1px solid #f4f4f4;border-radius:0.1rem; -webkit-border-radius:0.1rem; -moz-border-radius:0.1rem;}
+.recordtable td i { color:#ffd5be; padding:0 0 0 0.2rem;}

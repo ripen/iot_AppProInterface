@@ -1,0 +1,89 @@
+@charset "utf-8";
+/* CSS Document */
+body {font:14px / 1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif; margin: 0px; color:#454c50; background:#fff;}
+html {font:14px / 1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif; }
+form,h1,h3,p,h5,h2,h6,h4,dl,dd,dt {margin: 0px; padding:0;}
+ul {margin:0px; padding:0px; list-style-type: none;}
+li {margin:0px; padding:0px; display: block;}
+img {border: none;}
+textarea {font-size:12px;}
+.clearfix:after {clear:both; content:"."; display:block; height:0pt; visibility:hidden; overflow:hidden;}
+.clearfix{clear:both; height:1px; margin-top:-1px; width:100%; overflow:hidden;}
+a:link,a:visited { color: #454c50;	text-decoration: none;}
+a:hover { text-decoration: none; color:#fff;}
+.fl { float:left;}
+.fr { float:right;}
+.result-analysis-box h1,.result-analysis-box h2,.result-analysis-box h3{font:14px / 1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;font-weight: bolder;}
+
+#printDiv{width:900px;overflow: hidden;zoom: 1;}
+
+/*体检数据-报告*/
+.report-baseinfo {height:200px; position:relative; background:#25bff7; overflow:hidden;}
+.report-baseinfo h1 { font-size:32px; text-align:center; color:#fff; padding:18px 0 0; line-height:60px; font-weight:normal;}
+.report-baseinfo p {font-size:14px; line-height:24px; color:#fff; padding:0 0 0 60px; overflow:hidden;}
+.report-baseinfo p span {width:200px; padding:0 20px 0 0; float:left;}
+.report-baseinfo p span em { visibility:hidden;}
+.report-baseinfo p.big { font-size:16px; padding:0 0 0 60px; font-weight:bold;}
+.report-baseinfo p.number { color:#a8e5fc; position:absolute; right:30px; top:12px;}
+.report-box-module { overflow:hidden; zoom:1; border-left:1px solid #f4f4f4; border-right:1px solid #f4f4f4; padding:20px 30px 20px;}
+.report-box-module .title,.data-results-box .title { background:url(../img/10x2bg.gif) repeat-x bottom center; height:45px; overflow:hidden;}
+.report-box-module .title span,.data-results-box .title span.l {width:150px; height:43px; display:block; float:left; border-bottom:2px solid #25bff7; line-height:43px; font-size:24px;}
+.report-box-module .cont,.data-results-box .cont { padding:20px 0 0; overflow:hidden; zoom:1;}
+.report-box-module .cont p { font-size:14px; line-height:24px; padding:0 0 20px;}
+.report-box-module .great { padding:20px 0 0 60px; overflow:hidden;}
+.report-box-module .great span.icon {width:98px; background:url(../img/iconfont-aixin.png) no-repeat; height:98px; float:left; padding:0 20px 0 0;}
+.report-box-module .great p { font-size:14px; overflow:hidden; line-height:30px;}
+.report-box-module .great p.big { font-size:24px; padding:10px 0;}
+.report-box-module .great p.big span { font-size:30px; color:#abdd34; padding:0 0 0 10px;}
+.recordtable th,.recordtable td { font-size:14px; line-height:40px; text-align:center; border-bottom:1px solid #f4f4f4;}
+.recordtable th { font-weight:normal; background:#f4f4f4; border-left:1px solid #fff;}
+.recordtable th.first { border:0;}
+.recordtable { border-top:1px solid #f4f4f4; border-left:1px solid #f4f4f4; border-right:1px solid #f4f4f4;}
+.recordtable tr.even { background:#f4f4f4;}
+.recordtable tr.hover { background:#fffdbf;transition:all 0.3s linear 0s;transform:translateZ(10); border:1px solid #000;}
+.recordtable td a:hover { color:#454c50;}
+.graybg {width:100%; height:100%; position:fixed; top:0; left:0; background:#000; opacity:0.5; z-index:11; display:none;}
+.report-box-module .cont .tips { background:#fffdde; line-height:40px; padding: 0 10px; font-size:16px; margin:0 0 10px; position:relative; top:-20px;}
+.report-box-module .cont .tips span { color:#fe9c27;}
+.result-analysis { display:block; position:relative;}
+.result-analysis-box h1.cates { font-size:16px; padding:10px 0 5px 10px; }
+.result-analysis-box h2 i { float:right; padding:0 10px; font-size:16px; line-height:30px;}
+.result-analysis > span { background:url(../img/23x11.png) no-repeat; position:absolute; top:-11px; left:50px; width:23px; height:11px; display:none;}
+.result-analysis > a.x { background:url(../img/x.png) no-repeat; width:28px; height:28px; display:none; overflow:hidden; position:absolute; right:10px; top:10px; font-size:0;}
+.result-analysis .result-analysis-box { overflow:hidden; zoom:1; margin:0 0 10px;}
+.result-analysis.zindex{ z-index:99;}
+.result-analysis.zindex > a.x,.result-analysis.zindex > span { display:block;}
+.result-analysis-box h2 { font-size:14px; font-weight:normal; padding:5px 10px; line-height:30px; margin:1px 0; background:#f4f4f4; cursor:pointer;}
+.result-analysis-box h2 span { color:#fe9c27; font-size:18px; padding:0 0 0 10px;}
+.result-analysis-box h2 img {width:12px; margin:0 5px; position:relative; top:-2px;}
+.result-analysis-box h2 em { font-size:14px; margin:0 0 0 40px; font-style:normal;} 
+.result-analysis-box h3 { font-size:16px; font-weight:normal; display:block; overflow:hidden; }
+.result-analysis-box h3 span { margin:0 0 2px; display:block; float:left; color:#000;}
+.result-analysis-detail { background:#f9f9f9; padding:10px 20px; display:none;}
+.result-analysis-box .show { display:block;}
+.result-analysis-box .words { margin:0 0 20px; color:#888;}
+.result-analysis-box .words p { font-size:14px; line-height:24px; color:#7f7f7f; padding:0;}
+.report-box-module .cont .risk-prediction ul li > p { font-size:14px; line-height:24px; color:#7f7f7f; padding:5px 20px 0 75px;}
+.report-box-module .cont .tip-info { font-size:14px; line-height:24px;color:#7f7f7f;}
+.report-box-module .cont .tip-info span { color:#454c50;}
+.report-box-module .cont .yellow { background:#fffdde; line-height:40px; color:#fe9c27; margin:10px 0 0;}
+.reference-suggestion2 {}
+.reference-suggestion2 ul {width:170px; padding:40px 0; background:#f4f4f4; float:left;}
+.reference-suggestion2 li { line-height:48px; border-right:4px solid #f4f4f4; text-align:right; padding:0 16px 0 0; font-size:16px; clear:both; display:block; cursor:pointer;}
+.reference-suggestion2 li.cur { border-right:4px solid #25bff7; color:#25bff7;}
+.reference-suggestion2-box { display:none; width:520px; float:left; margin:0 0 0 80px; background:url(../img/250x140bg.jpg) no-repeat 60px top;}
+.reference-suggestion2-box img { margin:10px 0 30px 120px;}
+.reference-suggestion2-box .dotline { background:url(../img/7x1dot.gif) repeat-x bottom center; overflow:hidden; height:1px;}
+.reference-suggestion2-box h4 { color:#fff; line-height:30px; background:#25bff7; font-size:16px; float:left; clear:both; padding:0 20px; margin:20px 0;}
+.reference-suggestion2-box .words { clear:both;}
+.reference-suggestion2-box .words p { font-size:14px; line-height:24px; color:#7f7f7f;}
+.about-statement .title { border-top:1px solid #94e2ff; text-align:center; background:none; padding:20px 0 0; height:20px; overflow:visible; position:relative;}
+.about-statement .title span { width:200px; height:38px; border:0; padding:0 15px; font-size:18px; color:#fff; background:#94e2ff; line-height:38px; border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px; position:absolute; top:-20px; left:270px;}
+.about-statement .cont p { padding:0 0 10px;}
+.analysisbox .docinfo {overflow:hidden; zoom:1; color:#a1a1a1; font-size:16px; line-height:48px; height:48px; background:#fff; padding:0 20px;}
+.analysisbox .cont { background:#f3f6ff; border:1px solid #ecf0fb; margin:10px 0; position:relative; padding:10px 20px; line-height:24px; font-size:16px; color:#57585b;}
+.analysisbox .cont em { position:absolute; top:-10px; left:35px; width:20px; height:10px; background:url(../img/20x10arrowup.jpg) no-repeat; display:block;}
+.analysisbox .docinfo span em { color:#4c4d4f; font-style:normal; padding:0 10px;}
+.analysisbox .docinfo i.time { background:url(../img/17x17.png) no-repeat 8px 16px; width:30px; height:48px; margin:0; float:left;}
+
+

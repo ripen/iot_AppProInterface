@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>问诊记录</title>
+<link rel="stylesheet" href="__PUBLIC__/{$Think.MODULE_NAME}/css/custom.css" />
+<script type="text/javascript" src="__PUBLIC__/{$Think.MODULE_NAME}/js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/{$Think.MODULE_NAME}/js/loginreg.js"></script>
+</head>
+<body>
+<div class="toptitle">
+  <p>问诊记录</p>
+  <a name="back" class="absolute top left" href="/{$Think.MODULE_NAME}/Index/inquirylist"></a> 
+</div>
+<section class="main">
+	<ul class="inquirydetail">
+    	<div class="timeline">2015/08/23 09:27</div>
+    	<volist name="list" id="vo">
+        <li class="me">
+        	<div class="words">
+            	<em></em>
+            	<p>{$vo.content}</p>
+                
+            </div>
+            <div class="avatar">
+            	<img src="__PUBLIC__/{$Think.MODULE_NAME}/img/avatar_01.png" />
+                <span>我</span>
+            </div>
+        </li>
+        <empty name="vo.replay">
+        <else />
+        <li class="doctor">
+        	<div class="words">
+            	<em></em>
+            	<p>{$vo.replay.content}</p>
+                
+            </div>
+            <div class="avatar">
+            	<img src="__PUBLIC__/{$Think.MODULE_NAME}/img/avatar_02.png" />
+                <span>李丽华</span>
+            </div>
+        </li>
+        </empty>
+        </volist>       
+    </ul>
+	<div class="btnline">
+	<p><a href="#" class="btn-blue">回复</a></p>
+ </div>
+ <div class="answerbox">
+ 	<form action="#" name="form" method="post">
+    	<textarea class="textarea" name="content" id="content" placeholder="请输入您要咨询的问题"></textarea>
+    	<input type="hidden" name="bid" id="bid" value="{$bid}">
+    	<input type="hidden" name="pid" id="pid" value="{$pid}">
+    	<div id="tip"></div>
+        <input type="button" id="replay" class="sbtn" value="提交" /> <a class="cacel" href="javascript:void(0);">取消</a>
+    </form>
+ </div>
+</section>
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".btn-blue").click(function(){
+		$(".answerbox").slideDown(300);
+		$(this).hide();
+		return false;
+		})
+	$(".cacel").click(function(){
+		$(".answerbox").slideUp(300);
+		$(".btn-blue").show();
+		})
+	})
+</script>
+
+ <include file="./Application/Mobileastronautic/View/Index/footer.html" />
+</body>
+</html>

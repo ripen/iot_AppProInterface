@@ -1,0 +1,48 @@
+@charset "utf-8";
+/* CSS Document */
+body {font:14px / 1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif; margin: 0px; color:#353535; background:#fff;}
+.login { background:#1a1e23 url(../img/bodybg.png) repeat-y bottom center;}
+form,h1,h3,p,h5,h2,h6,h4,dl,dd,dt {margin: 0px; padding:0;}
+ul {margin:0px; padding:0px; list-style-type: none;}
+li {margin:0px; padding:0px; display: block;}
+img {border: none;}
+textarea {font-size:12px;}
+.clearfix:after {clear:both; content:"."; display:block; height:0pt; visibility:hidden; overflow:hidden;}
+.clearfix{clear:both; height:1px; margin-top:-1px; width:100%; overflow:hidden;}
+a:link,a:visited { color: #353535;	text-decoration: none;}
+a:hover { text-decoration: none; color:#62c30b;}
+.login .wrap  {width:100%; overflow:hidden; background:url(../img/bg.jpg) no-repeat center -80px;}
+.login .wrap .container {width:900px; overflow:hidden; zoom:1; margin:300px auto 40px;}
+.top { height:89px; width:100%;}
+.top img { padding:0 0 5px 5px;}
+.main { width:100%; overflow:hidden;}
+.main .summary {width:880px; padding:10px; background:#575f5f; border-radius:8px; -moz-border-radius:8px; -webkit-border-radius:8px;}
+.main .summary h1 { font-size:36px; line-height:50px; font-weight:normal; text-align:center; color:#fff; padding:10px 0;}
+.main .summary p { font-size:16px; line-height:24px; margin:0 10px; color:#fff; padding:20px 0 10px; border-top:1px solid #568daa;}
+.main .formbox {width:880px; padding:10px; margin:10px 0 0; background:#16191b; border-radius:8px; -moz-border-radius:8px; -webkit-border-radius:8px; color:#fff; }
+.main .formbox span { padding:0 10px 0 0; float:left; line-height:28px;}
+.main .formbox span.s1 { padding:0 10px 0 30px;}
+.main .formbox p { overflow:hidden; padding:5px 0;}
+.main .formbox .inputx {width:250px; height:28px; color:#7c98ac; font-size:14px; background:#fff; padding:0 10px; border:1px solid #c9c9c9; line-height:28px; border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px;}
+.main .formbox p.tips { padding:0 0 0 130px; color:#F00;}
+.main .formbox .subbtn {width:72px; background:#64c95f; border:0; height:32px; line-height:32px; font-size:14px; color:#fff; text-align:center;border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px;}
+.main .formbox .subbtn:foucus { background:#30a7fa; box-shadow:1px 0 3px 8px #ccc;}
+.main .hotline { font-size:16px; color:#fff; line-height:30px; padding:10px 0; text-align:right; overflow:hidden;}
+.main .hotline span { padding:0 10px;}
+.footer { width:100%; overflow:hidden; margin:100px 0 0;}
+.footer p { font-size:14px; line-height:50px; color:#fff; text-align:center;}
+@media only screen and (max-width:1600px ) {
+	.login .wrap { background-position:center -180px;}
+	.login .wrap .container { margin:200px auto 40px;}
+	.main .summary h1 { font-size:24px; line-height:36px;}
+	.footer { margin:40px 0 0;}
+	}
+@media only screen and (max-width:1366px ) {
+	.login .wrap { background-position:center -220px;}
+	.login .wrap .container { margin:160px auto 40px;}
+	.main .summary h1 { font-size:24px; line-height:36px;}
+	.footer { margin:40px 0 0;}
+	}
+@media only screen and (max-width:1280px ) {
+
+	}

@@ -1,0 +1,389 @@
+#loginDiv {
+	padding-top: 10%;
+}
+
+ol li {
+	font-size: 12px;
+	color: gray;
+}
+
+.login-buttom-txt {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #ABCAD3;
+	text-decoration: none;
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	/*margin-top: 50px;*/
+	margin-top: 80px;
+
+}
+
+#mainer {
+	background: url(../img/login_box1.png) no-repeat;
+	height: 400px;
+	width: 800px;
+	padding-top: 2.5%;
+	position: relative;
+	margin: 0 auto;
+}
+
+#mainer h1 {
+	color: #00cae5;
+	text-align: center;
+}
+
+#mainer .contentR {
+	padding-top: 35px;
+}
+
+#mainer .contentR p {
+	padding-top: 7px;
+	padding-bottom: 7px;
+}
+
+#askSelect,#dwPrioritySelect {
+	width: 65px;
+	height: 30px;
+	margin-left: 4px;
+	margin-right: 25px;
+	color: #999;
+	border: 1px solid #d6d6d6;
+	border-radius: 3px;
+}
+
+#login_div {
+	width: 320px;
+	margin-left: 350px;
+	/*padding-top: 25px;*/
+}
+
+.wordage {
+	font-size: 14px;
+	height: 40px;
+	line-height: 40px;
+	text-align: left;
+	margin-bottom: 3px;
+	color: #666;
+}
+
+.Btn {
+	cursor: pointer;
+	font-size: 14px;
+	height: 30;
+	line-height: 30px;
+	text-align: center;
+	width: 80px;
+	border-radius: 3px;
+	margin-top: 5px;
+	color: #fff;
+}
+
+#loginRoom:hover {
+	background-color: #00bed7;
+}
+
+#Btn_div {
+	height: 55px;
+	width: 320px;
+    padding-top: 36px;		
+}
+
+#setting_div_input {
+	font-size: 14px;
+	text-align: left;
+}
+
+#username {
+	color: #999;
+	border: 1px solid #d6d6d6;
+	height: 35px;
+	line-height: 35px;
+	padding-left: 5px;
+	padding-right: 5px;
+	width: 238px;
+	border-radius: 3px;
+	margin-left: 5px;
+}
+
+#username:focus {
+	border: 1px solid #cbdce4;
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.45);
+}
+
+/*anychat日志*/
+#LOG_DIV_BODY {
+	bottom: -210px;
+	display: none;
+	height: 200px;
+	position: fixed;
+	right: 20px;
+	z-index: 99999;
+	right: 0;
+	width: 420px;
+}
+
+#LOG_DIV_TITLE {
+	font-size: 12px;
+	padding: 10px;
+	line-height: 15px;
+	position: absolute;
+	right: 0px;
+	z-index: 99999;
+	background: #00a4e3;
+	width: 402px;
+	color: #fff;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+
+}
+
+#LOG_DIV_TITLE b {
+	display: block;
+	text-align: center;
+	float: right;
+	margin-left: 5px;
+	cursor: pointer;
+}
+#LOG_DIV_TITLE b:hover {
+	background: #ccd0d9;
+	color: white;
+}
+#LOG_DIV_CONTENT {
+	margin-top: 35px;
+	font-size: 12px;
+	height: 155px;
+	overflow-y: auto;
+	padding: 10px;
+	position: absolute;
+	width: 400px;
+	z-index: 99999;
+	border: 1px solid #00cae5;
+	right: 0;
+	text-align: right;
+}
+#LOG_DIV_CONTENT font {
+	margin-bottom: 4px;
+	display: inline-block;
+}
+#LOG_DIV_CONTENT:hover {
+	background-color: #d1f0ed;
+}
+
+#loginRoom {
+	text-align: center;
+	display: block;
+	background-color: #00cae5;
+	padding: 5px 80px;
+	/*margin-top: 45px;*/
+	margin-top: 80px;
+	margin-left: 60px;
+	border: 0;
+	color: white;
+}
+
+#ServerAddr,#ServerPort,#AppGuid {
+	color: #999;
+	border: 1px solid #d6d6d6;
+	height: 30px;
+	line-height: 30px;
+	padding-right: 2px;
+	padding-left: 2px;
+	width: 117px;
+	border-radius: 3px;
+	margin-left: 5px;
+}
+
+#ServerPort {
+	width: 50px;
+}
+
+#AppGuid{
+    width:248px;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+}
+
+body {
+	background: #e8e8e8;
+}
+
+a.btn {
+	background: white;
+	border: 2px solid gray;
+	padding: 5px 15px;
+	height: 25px;
+	line-height: 25px;
+	font-weight: bold;
+	cursor: pointer;
+	border-radius: 5px;
+	font-size: 14px;
+	letter-spacing: 1px;
+	color: black;
+	font-weight: normal;
+}
+
+a.btn:hover {
+	background: #FEB;
+	color: white;
+}
+
+.enterRoom {
+	display: none;
+	text-align: center;
+	min-width: 1024px;
+	min-height: 665px;
+}
+
+.head {
+	position: relative;
+	line-height: 67px;
+	height: 67px;
+	background: #00cae5;
+	box-shadow: 1px 1px 3px gray;
+}
+.head h2:first-child{display:none;}
+.head h2 {
+	color: white;
+	letter-spacing: 8px;
+}
+
+.head a.btn {
+	position: absolute;
+	right: 10px;
+	top: 14%;
+}
+
+.contentArea {
+	text-align: left;
+}
+
+.content {
+	min-height: 535px;
+	height: 90%;
+	position: relative;
+}
+/*日志输出层*/
+#LOG_DIV_BODY iframe {
+	background-color:transparent;
+	position: absolute;
+	z-index: 9999;
+	width: 100%; height: 100%; top: 0;left:0;
+}
+.showBox {
+	background: #00a4e3;
+	color: #fff;
+	padding: 2px 15px;
+	position: fixed;
+	bottom: 0px;
+	right: 30px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+#showLog {
+	font-size: 16px;
+}
+#icon {
+	width: 25px;
+	height:32px;
+	display: inline-block;
+	float: left;
+	margin-right: 5px;
+	background: url('./../img/book.png') no-repeat;
+	margin-top: 2px;
+}
+.list {
+	padding: 3% 110px 0;
+	color: white;
+}
+
+.list li {
+	display: inline-block;
+	width: 250px;
+	height: 350px;
+	list-style: none;
+	margin: 11px;
+	background: #6C5;
+	position: relative;
+	border: 1px solid #ccc;
+	box-shadow: 1px 1px 2px #ccc;
+	text-align: center;
+	float: left;
+}
+
+.list li p {
+	margin: 15px 0;
+	font-size: 13px;
+	width: 100%;
+}
+
+.list li p:first-child {
+	font-weight: bold;
+	font-size: 20px;
+	margin-top: 35px;
+}
+
+.list li p:last-child {
+	background: white;
+	position: absolute;
+	bottom: 0;
+	margin: 0px;
+	padding: 20px 0;
+	left:0;
+}
+
+.list li p:last-child a.btn {
+	position: static;
+	border: 1px solid gray;
+	/*border-bottom: 2px solid gray; */
+	border-radius: 3px;
+	color: green;
+	padding: 10px 35px;
+}
+
+
+.list li p:last-child a.btn:hover {
+	background: none;
+	box-shadow: 1px 1px 3px gray;
+	font-weight: bold;
+}
+
+.list p.description {
+	line-height: 20px;
+	margin: 0 auto;
+	text-overflow: ellipsis;
+	width: 80%;
+	height: 40px;
+}
+
+#LOADING_GREY_DIV {
+	display: none;
+	background: rgba(255, 255, 255, 0.6) !important;
+	filter: Alpha(opacity = 40);
+	width: 100%;
+	height: 100%;
+	background-color: #999999;
+	position: absolute;
+	z-index: 44;
+	text-align: center;
+}
+#LOADING_GREY_DIV h2 {
+	margin:10px;
+	color: orange;
+	display: inline-block;
+	font-weight: bold;
+	padding: 5px;
+	margin-top:20%;
+	line-height:53px;height: 53px
+}
+#LOADING_GREY_DIV h2 img {
+	height: 35px;margin-top:10px
+}
+#LOADING_GREY_DIV h2 span {
+	float: right;margin-left: 10px;
+}

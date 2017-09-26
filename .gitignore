@@ -1,0 +1,10 @@
+.DS_Store
+Thumbs.db
+/index.html
+html
+Application/Runtime
+Application/Runtime/*
+/Application/Common/Conf/config.php
+/Application/Data2/Conf/config.php
+
+/index.php

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>编辑-个人中心</title>
+<link rel="stylesheet" href="__PUBLIC__/{$Think.MODULE_NAME}/css/custom.css" />
+<script type="text/javascript" src="__PUBLIC__/{$Think.MODULE_NAME}/js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/{$Think.MODULE_NAME}/js/loginreg.js"></script>
+</head>
+<body>
+<div class="toptitle">
+  <p>编辑个人信息</p>
+  <a name="back" class="absolute top left" href="/{$Think.MODULE_NAME}/Index/userinfo"></a>
+  <a name="edit" id="editsave" class="absolute top right" href="javascript:void(0)">保存</a> 
+</div>
+<section class="main whitebox">
+	<div class="baseinfo-edit">
+      <p><span>姓名</span><em><input type="text" name="username" id="username" class="inputx" value="{$user.username}"/></em></p>
+      <p><span>性别</span><em>
+      <select name="sex" id="sex">
+      	<option value="1"   >男</option>
+        <option value="2">女</option>
+      </select>
+      </em></p>
+      <p><span>身高</span><em><input type="text" name="height" id="height" class="inputx" value="{$user.height}" style="width:50%;"/><ins>cm</ins></em></p>
+      <p><span>体重</span><em><input type="text" name="weight" id="weight" class="inputx" value="{$user.weight}" style="width:50%;"/><ins>kg</ins></em></p>
+      <p><span>出生日期</span><em><input type="text" name="birthday" id="birthday" class="inputx" value="{$user.birthday}"/></em></p>
+      <p><span>文化程度</span><em>
+      <select name="edu" id="edu" >
+      	<option value="本科以上" selected>本科以上</option>
+        <option value="本科" >本科</option>
+         <option value="专科" >专科</option>
+          <option value="高中" >高中</option>
+      </select>
+      </em></p>
+      <p><span>患有疾病</span><em>
+      <select name="disease" id="disease" >
+      	<option value="糖尿病" selected>糖尿病</option>
+        <option value="高血压" >高血压</option>
+         <option value="心脏病" >心脏病</option>
+          <option value="其他" >其他</option>
+      </select>
+      </em></p>
+    </div>
+    <div id="tip"></div>
+</section>
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".btn-blue").click(function(){
+		$(".answerbox").slideDown(300);
+		$(this).hide();
+		return false;
+		})
+	$(".cacel").click(function(){
+		$(".answerbox").slideUp(300);
+		$(".btn-blue").show();
+		})
+	})
+</script>
+
+ <include file="./Application/Mobileastronautic/View/Index/footer.html" />
+</body>
+</html>

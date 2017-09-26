@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>检测进程</title>
+		<script type="text/javascript" src="__PUBLIC__/Kbox/js/jquery.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/Kbox/js/util.js" ></script>
+		<script>
+			$(document).ready(function() {
+				
+				var timer = setInterval(register, 8000);
+			});
+			function register() {
+				location.reload(true);
+			}
+
+
+			function cancelexam(id){
+				if(!id){
+					return false;
+				}
+				var confirm	=	window.confirm('确认结束吗？');
+				if (!confirm) {
+					return false;
+				}
+
+				$.ajax({
+				   type: "POST",
+				   url: "/kbox/drugs/delexamstateinfo",
+				   data: "id="+id+"&sign={$sign}",
+				   success: function(msg){
+				    	if(msg && msg == 100){
+				    		$('.examstatetr'+id).remove();
+				    	}
+				   }
+				});
+			}
+		</script>
+	</head>
+
+	<style type="text/css">
+	#targetTable { border-right:1px solid #e3e3e3; border-top:1px solid #e3e3e3;}
+	#targetTable td,#targetTable th { font-family:"微软雅黑"; height:90px; text-align:center; font-size:14px;border-left:1px solid #e3e3e3; border-bottom:1px solid #e3e3e3;}
+	#targetTable th { background:#f4f5f7; height:42px; line-height:42px; color:#6f7a7f; font-size:18px; font-weight:normal;}
+	#targetTable td span { display:block; padding:40px 0 0; font-size:14px; height:50px; line-height:50px; text-align:center; }
+	#targetTable td span.nodo { background:#fff url(__PUBLIC__/Kbox/img/25x25.png) no-repeat center 20px; color:#303030;}
+	#targetTable td span.noeq { background:#fff url(__PUBLIC__/Kbox/img/25x25.png) no-repeat center 20px; color:#303030;}
+	#targetTable td span.doing { background:#c8defa url(__PUBLIC__/Kbox/img/process.gif) no-repeat center 5px; color:#303030; border:1px solid #6497d9; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px;}
+	#targetTable td span.done { background:#aef6a9 url(__PUBLIC__/Kbox/img/26x26.png) no-repeat center 20px; color:#303030; border:1px solid #40d531; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px;}
+	#targetTable td a { color:#2286bd; font-size:18px; text-decoration:none; font-family:Verdana, Geneva, sans-serif;}
+
+	div {font-family:"微软雅黑"; line-height:20px; text-align:center; font-size:14px;border-left:1px solid #f4f4f4; border-bottom:1px solid #f4f4f4;}
+	</style>
+	
+	
+	<body>
+		<table id="targetTable" width="100%" cellpadding="0" cellspacing="0">  
+            <tr id='first'>  
+                <th>序号</th>  
+                <th width='20%'>用户名</th>  
+				<th>血糖</th>
+				<th>血脂</th>
+				<th>血压</th>
+				<th>血氧</th>
+				<th>心电</th>
+                <th>体成分</th>  
+                <th>尿常规</th>
+                <th style="display:none;">额温</th>
+                <th style="display:none;">状态</th>
+            </tr>
+			
+			<empty name="result">
+            	<tr><td colspan="11">未查询到数据</td></tr>
+            <else />	
+            	
+            	<foreach name="result" item="vo" key="key" >
+            	<tr class='examstatetr{$vo.id}'>
+                	<td >{$vo.id}</td>
+                    <td><a href='javascript:;'  onclick="cancelexam({$vo.id})">{$vo.nickname}( {$vo.personid} )</a></td>
+                    <td>
+						<if condition=" ( $vo.gl eq 0 ) ">
+							<span class="done">测量完成</span>
+						<elseif condition="( $vo.gl eq 2 )"/>
+							<span class="doing">正在测量</span>
+						<else />
+							<span class="noeq">未测量</span>
+						</if>
+					</td>
+
+					<td>
+						<if condition=" ( $vo.bf eq 0 ) ">
+							<span class="done">测量完成</span>
+						<elseif condition="( $vo.bf eq 2 ) "/>
+							<span class="doing">正在测量</span>
+						<else />
+							<span class="noeq">未测量</span>
+						</if>
+					</td>
+
+					<td>
+						<if condition=" ( $vo.bp eq 0 ) ">
+							<span class="done">测量完成</span>
+						<elseif condition="( $vo.bp eq 2 ) "/>
+							<span class="doing">正在测量</span>
+						<else />
+							<span class="noeq">未测量</span>
+						</if>
+					</td>
+
+
+					<td>
+						<if condition=" ( $vo.ox eq 0 ) ">
+							<span class="done">测量完成</span>
+						<elseif condition="( $vo.ox eq 2 ) "/>
+							<span class="doing">正在测量</span>
+						<else />
+							<span class="noeq">未测量</span>
+						</if>
+					</td>
+
+					<td>
+						<if condition=" ( $vo.el eq 0 ) ">
+							<span class="done">测量完成</span>
+						<elseif condition="( $vo.el eq 2 )"/>
+							<span class="doing">正在测量</span>
+						<else />
+							<span class="noeq">未测量</span>
+						</if>
+					</td>
+
+					<td>
+						<if condition=" ( $vo.we eq 0 ) ">
+							<span class="done">测量完成</span>
+						<elseif condition="( $vo.we eq 2 ) "/>
+							<span class="doing">正在测量</span>
+						<else />
+							<span class="noeq">未测量</span>
+						</if>
+					</td>
+
+
+					<td>
+						<if condition=" ( $vo.ur eq 0 ) ">
+							<span class="done">测量完成</span>
+						<elseif condition="( $vo.ur eq 2 ) "/>
+							<span class="doing">正在测量</span>
+						<else />
+							<span class="noeq">未测量</span>
+						</if>
+					</td>
+
+					
+                    <td style="display:none;">
+						<if condition=" ( $vo.tm eq 0 ) ">
+							<span class="done">测量完成</span>
+						<elseif condition="( $vo.tm eq 2 )"/>
+							<span class="doing">正在测量</span>
+						<else />
+							<span class="noeq">未测量</span>
+						</if>
+					
+					</td>
+                    
+					
+                    <td style="display:none;">
+						<if condition="$vo.status eq 0 ">
+							<span class="done">测量完成</span>
+						<elseif condition="$vo.status  eq 2"/>
+							<span class="doing">正在测量</span>
+						<else />
+							<span class="nodo">未测量</span>
+						</if>
+					</td>
+                </tr>
+                </foreach>  
+           </empty>   
+			
+			
+        </table>
+	</body>
+
+</html>

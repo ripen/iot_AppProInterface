@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="img/queue.ico">
+<title>AnyChat 智能排队</title>
+<meta charset="UTF-8" content="text/html" http-equiv="Content-Type">
+
+<link rel="icon" href="img/queue.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="img/queue.ico" type="image/x-icon" />
+<!--[if IE]><link rel="stylesheet" type="text/css" href="css/ie8Style.css"><![endif]-->
+<link rel="stylesheet" type="text/css" href="css/prompt.css" />
+<link rel="stylesheet" type="text/css" href="css/login.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/anychat4html5.min.js"></script>
+<script src="js/anychatsdk.js"></script>
+<script src="js/anychatobject.js" charset="GB2312"></script>
+<script src="js/main.js"></script>
+<script src="js/advanceset.js"></script>
+<script src="js/anychatevent.js"></script>
+<script src="js/videocall.js"></script>
+</head>
+
+<body>
+	<!--灰色背景透明层 -->
+	<div id="LOADING_GREY_DIV">
+		<h2>
+			<img title="请等待..." alt="请等待..." src="img/loading.gif"><span></span>
+		</h2>
+	</div>
+	<!-- 登录层 -->
+	<div id="loginDiv">
+		<div id="mainer">
+			<h1>AnyChat 智能排队</h1>
+			<div class="contentR">
+				<div id="login_div">
+					<div class="wordage">
+						用户名：<input id="username" type="text" value="请输入用户名!" />
+					</div>
+					<div class="wordage">
+						&nbsp;身&nbsp;&nbsp;份： <select id="askSelect">
+							<option value="1">客户</option>
+							<option value="2">坐席</option>
+						</select>&nbsp;&nbsp; 优先级： <select id="dwPrioritySelect">
+							<script>
+								for (var i = 5; i <= 15; i++)
+									document.write('<option value="'+i+'">' + i + '</option>');
+								$('#dwPrioritySelect').val(10);
+							</script>
+						</select>
+						<div id="setting_div_input">
+							服务器IP：<input type="text" id="ServerAddr"> &nbsp;端&nbsp;&nbsp;口：<input type="text" id="ServerPort">
+						</div>						
+					</div>
+					<div id="Btn_div">
+						<a class="Btn" id="loginRoom">登&nbsp;录</a>
+					</div>
+				</div>
+			</div>
+			<span class="login-buttom-txt"><p>Copyright © 2005-2016 www.anychat.cn</p></span>
+		</div>
+	</div>
+	<!-- 安装插件提示层 -->
+	<div id="prompt_div">
+		<div class="close_div">
+			<div id="prompt_div_headline1">插件安装提示</div>
+			<div id="prompt_div_headline2">刷新</div>
+		</div>
+		<div>
+			<div id="prompt_div_line1"></div>
+			<div id="prompt_div_line2">控件安装完成后，请重启浏览器</div>
+			<div id="prompt_div_btn_load" onclick="window.open('http://anychat.oss.aliyuncs.com/AnyChatWebSetup.exe')">下载安装</div>
+		</div>
+		<div id="prompt_div_BR">
+			<a href="http://www.anychat.cn/">AnyChat</a>&nbsp;|;&nbsp; <a href="http://www.bairuitech.com/">佰锐科技</a>
+;		</div>
+	</div>
+	<!-- 营业厅/队列选择层 -->
+	<div class="enterRoom" id="enterRoom">
+		<div class="head">
+			<h2></h2><h2></h2>
+			<a class="btn" id="roomOut"></a>
+		</div>
+		<div class="content">
+			<div class="contentArea">
+				<ul class="list" id="poptip">
+					
+				</ul>
+			</div>
+			<!-- 等待呼叫层 -->
+			<center>
+				<div class="callBox">
+					<div id="callLayer">
+						<h4>服务等待中</h4>
+						<br />
+						<div id="queueMsg1">
+				            <div class="queueBox">
+		                        当前排队人数共：<strong></strong> 人，您现在排在第 <strong></strong> 位 <br />
+								已等待时长：<strong></strong>
+								<br />
+								<a class="confirmMsg">取消排队</a>
+							</div>
+						</div>
+						<div id="queueMsg2">
+							<p>坐席请求与您视频通话，是否接受？</p>
+							<a class="confirmMsg" id="takeUp">接受</a>
+							<a class="confirmMsg" id="reject">拒绝</a>
+						</div>
+					</div>
+				</div>
+				<div id="videoCall">
+					<div style="padding:15px;">
+						<!-- 视频层 -->
+						<div id="videoCallContent">
+							<div style="float: left">
+								<div id="clientList">
+									<h3 style="color:pink;">服务信息</h3>
+									<br>
+									<b>服务区域内访客的用户数<br>
+									（没有排入队列的用户）</b>
+									<strong>0人</strong><br>
+									<b>服务区域内排队的用户数</b>
+									<strong>0人</strong><br>
+									<b>服务区域内队列的数量</b>
+									<strong>3个</strong>
+								</div>
+								<div id="localVideoDiv">
+									<div id="localVideoPos">
+									</div>
+									<div id="localAudioVolume">
+									</div>
+								</div>
+							</div>
+							<div id="removeVideoDiv">
+								<div id="removeVideoPos">
+								</div>
+								<div id="remoteAudioVolume">
+								</div>
+								<button class="buttonCls" id="startService">开始服务</button><button class="buttonCls" id="stopVideo">停止视频</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</center>
+		</div>
+	</div>
+	<!-- 主动呼叫等待框 -->
+    <div id="Initiative_Call_Div">
+        <div class="Div_HeadPart">
+            <img alt="取消呼叫" src="img/others/close.png" onclick="CancelCall()" />
+        </div>
+        <div id="Initiative_Call_Div_Content" class="Call_Div_Content"></div>
+        <div class="Call_Div_Button">
+            <div id="Initiative_Cancel_Button" onclick="CancelCall()" style="">取消呼叫</div>
+        </div>
+    </div>
+	<!-- 信息提示层 -->
+	<div id="SessionPrompt_Div"></div>
+	<!-- 日志输出层 -->
+	<div id="LOG_DIV_BODY">
+		<div id="LOG_DIV_TITLE">系统日志<b title="最小化">—</b></div>
+		<div id="LOG_DIV_CONTENT"></div>
+		<iframe frameborder=0 scrolling=no allowtransparency=true></iframe>
+	</div>
+	<div class="showBox">
+		<span id="icon"></span>
+		<span class="btn" id="showLog">显示日志</span>	
+	</div>
+	
+</body>
+<script>
+$(document).keypress(function(event){  
+    var keycode = (event.keyCode ? event.keyCode : event.which);  
+    if($("#loginDiv").css("display")=="block"){
+	    if(keycode == '13')
+	        $("#loginRoom").click();
+    }
+});
+</script>
+</html>
+

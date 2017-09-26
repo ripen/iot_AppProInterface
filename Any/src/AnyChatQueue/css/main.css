@@ -1,0 +1,328 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "Microsoft YaHei" ! important;
+}
+
+body {
+	background-image: url("../img/bg.png");
+	background-size: 100%;
+}
+#roomOut {
+    background: url('../img/back0.png') no-repeat;
+    border:0;
+    width:45px;
+    height: 45px;
+}
+
+/*callLayer*/
+#callLayer {
+	display: none;
+	border-radius: 5px;
+	width: 600px;
+	height: 280px;
+	line-height: 50px;
+	box-shadow: 0 0 5px black;
+	background: #fff;
+}
+
+#callLayer h4 {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	color: white;
+	padding-left: 25px;
+	text-align: left;
+	background-color: #00cae5;
+	height:45px;
+}
+#queueMsg1 {
+	background: url("../img/15.png") no-repeat;
+    margin-left: 110px;
+    padding-left: 60px;
+    text-align: center;
+}
+strong {
+	color: #ee5e0f;
+}
+
+#queueMsg2 {
+	display: none;
+	background: url("../img/14.png") no-repeat;
+    padding-left: 40px;
+    width: 360px;
+}
+#takeUp {
+	background-color: #4baf4f;
+}
+#takeUp:hover { background-color: #349638;}
+#queueMsg2 .confirmMsg {
+	padding: 8px 25px;
+	border: 0;
+	margin-left: 40px;
+	color: #fff;
+	border-radius: 3px;
+	margin: 40px 20px 40px 10px;
+}
+#reject {
+	background: #fd5621;
+}
+#reject:hover {
+	background: #db4819;
+}
+#queueMsg1 .confirmMsg {
+	background-color: #fd5621;
+    border: 0 none;
+    border-radius: 3px;
+    color: #fff;
+    margin-left: 90px;
+    margin-top: 10px;
+    padding: 8px 10px;
+}
+.confirmMsg:hover { 
+    background: #db4819;
+    cursor: pointer;
+}
+
+/* 视频层样式 */
+#VideoShowDiv {
+	display:none;
+    background-image: url("../img/dialog/03.png");
+    height: 455px;
+    width: 1020px;
+    z-index: 40;
+    position: relative;
+}
+
+.videoshow0 {
+	//background: url("../img/reUser.jpg");
+    height: 355px;
+    left: 21px;
+    position: absolute;
+    top: 15px;
+    width: 480px;
+}
+
+.videoshow1 {
+	//background: url("../img/reUser.jpg") !important;
+    height: 355px;
+    position: absolute;
+    right: 23px;
+    top: 15px;
+    width: 480px;
+}
+
+.ShowName {
+    color: White;
+    font-family: 微软雅黑;
+    font-size: 22px;
+    font-weight: bold;
+    height: 55px;
+    line-height: 55px;
+    position: absolute;
+    text-align: center;
+    top: 376px;
+    width: 480px;
+}
+
+#hangUp {
+    background: url("../img/dialog/btnfalse_move.png");
+}
+
+.Buttons {
+    background: url("../img/dialog/btntrue_move.png");
+    color: White;
+    cursor: pointer;
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    margin: 25px auto -15px;
+    text-align: center;
+    width: 120px;
+}
+
+#hangUp:hover, .Buttons:hover {
+    background: url("../img/dialog/btnfalse_over.png");
+    color: black;
+}
+
+#SessionPrompt_Div {
+	position:relative;
+	z-index:9999;
+	box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.45);
+	background-color: #666666;
+	border:1px solid white;
+	display: none;
+	line-height: 50px;
+	position: absolute;
+	text-align: center;
+	width: 200px;
+	color: white;
+}
+
+.list li.queue-item 
+{
+    display: inline;
+    float: left;
+    padding: 7px;
+    height: 150px;
+    width: 330px;
+    margin-right: 6px;
+}
+.queue-item-link
+{
+    display: inline;
+    float: left;
+    width: 69px;
+    outline: 0;
+}
+.queue-item-pic
+{    
+    width: 69px;
+    height: 69px;
+    margin-top: 60%;
+    display: inline;
+    float: left;   
+}
+.queue-item-layout
+{
+    display: inline;
+    float: left;
+    width: 240px;
+    height: 150px;
+    margin-left: 10px;
+}
+.queue-item-layout-title
+{
+    font-size: 22px;
+    display: block;
+    vertical-align: middle;
+    height: 40px;
+}
+.queue-item-layout-desc
+{
+    font-size: 16px;
+    padding-left: 14px;
+    display: block;
+    vertical-align: middle;
+    height: 36px;
+    text-align: left;
+}
+
+.queue-item-layout-btn
+{
+    font-size: 18px;
+    padding-left: 14px;
+    display: block;
+    vertical-align: middle;
+    height: 36px;
+    text-align: center;
+}
+
+.queue-item-layout-btn a.btn
+{
+    line-height:35px;
+    background-color:transparent;    
+    color:White;
+    border: 2px solid white;
+}
+
+.queue-item-layout-btn a.btn:hover
+{
+    background-color:#ee5e0f;    
+}
+
+#videoCall{
+    display: none;
+}
+#localVideoPos {
+    box-shadow: 1px 1px 4px #ccc;
+    background: url("../img/videobk_agent_local.jpg") no-repeat;
+}
+#remoteVideoPos {
+    box-shadow: 1px 1px 4px #ccc;
+    background: url("../img/videobk.jpg") no-repeat;
+}
+#localAudioVolume,#remoteAudioVolume{
+    background: green;
+    position: absolute;
+}
+.buttonCls {
+    height: 50px;
+    margin: 19px;
+    width: 100px;
+}
+
+#Initiative_Call_Div {
+    display:none;
+    width: 300px;
+    height: 170px;
+    position: absolute;
+    background: url('../img/dialog/PrivateChat.png');
+    z-index: 99999;
+    text-align: center;
+}
+
+.Div_HeadPart {
+    width: 285px;
+    height: 40px;
+    margin: 10px 10px 0px 5px;
+}
+
+.Div_HeadPart img {
+    cursor: pointer;
+    margin: 10px 0px 0px 250px;
+}
+.Call_Div_Content {
+    text-align: center;
+    width: 285px;
+    height: 70px;
+    margin: 0px 10px 0px 5px;
+    font-family: 微软雅黑;
+    font-size: 13px;
+}
+.Call_Div_Button {
+    width: 285px;
+    height: 30px;
+    margin: 0px 10px 0px 5px;
+}
+#Initiative_Cancel_Button {
+    cursor: pointer;
+    background: url('../img/others/CancelBtn.png');
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 13px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.callBox { padding-top: 10%; }
+.queueBox { text-align: left;}
+#videoCall {
+    width: 880px;margin-top: -10%;
+}
+#clientList {
+    height:300px;width:240px;padding-top: 15px;
+}
+#clientList strong {
+    color:orange;margin-top:10px;display: block;
+}
+#clientst b {
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+#localVideoDiv {
+    width:240px;padding-top:10px;
+}
+#localAudioVolume {
+    width:240px;height:5px;
+}
+#removeVideoDiv {
+    float:right;text-align: center;
+}
+#removeVideoPos {
+    width:568px;height:426px;
+}
+#remoteAudioVolume {
+    background:green;width:568px;height:5px;
+}

@@ -1,0 +1,383 @@
+<html>
+    <head>
+
+    <meta charset="utf-8" />
+    <title>设备地理分布-多功能传感器信息化平台</title>
+    <meta name="viewport" content="width=device-width" />
+        <style type="text/css">
+            body {
+                margin: 0;
+            }
+            #main {
+                height: 100%;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="main"></div>
+        <script src="/Public/doc/example/www/js/echarts.js"></script>
+        <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+        <script src="/Public/doc/asset/js/jquery.min.js"></script>
+<script type="text/javascript">
+<!--
+		//var markPointdata;
+
+
+
+	var markPointdata	= [{'name':'邢台','value':1}
+,{'name':'呼伦贝尔','value':1}
+,{'name':'大连','value':2}
+,{'name':'丹东','value':1}
+,{'name':'鸡西','value':1}
+,{'name':'湖州','value':1}
+,{'name':'黄山','value':1}
+,{'name':'泰安','value':1}
+,{'name':'鹤壁','value':1}
+,{'name':'许昌','value':1}
+,{'name':'东城区','value':2}
+,{'name':'宝鸡','value':1}
+,{'name':'渭南','value':1}
+,{'name':'静安区','value':1}
+];
+ 	var markLinedata	= [[{'name':'北京'}, {'name':'邢台','value':1}]
+,[{'name':'北京'}, {'name':'呼伦贝尔','value':1}]
+,[{'name':'北京'}, {'name':'大连','value':2}]
+,[{'name':'北京'}, {'name':'丹东','value':1}]
+,[{'name':'北京'}, {'name':'鸡西','value':1}]
+,[{'name':'北京'}, {'name':'湖州','value':1}]
+,[{'name':'北京'}, {'name':'黄山','value':1}]
+,[{'name':'北京'}, {'name':'泰安','value':1}]
+,[{'name':'北京'}, {'name':'鹤壁','value':1}]
+,[{'name':'北京'}, {'name':'许昌','value':1}]
+,[{'name':'北京'}, {'name':'东城区','value':2}]
+,[{'name':'北京'}, {'name':'宝鸡','value':1}]
+,[{'name':'北京'}, {'name':'渭南','value':1}]
+,[{'name':'北京'}, {'name':'静安区','value':1}]
+];
+(function () {
+    require.config({
+        paths: {
+            echarts: '/Public/doc/example/www/js'
+        },
+        packages: [{
+                name: 'BMap',
+                location: '/Public/src',
+                main: 'main'
+            }
+        ]
+    });
+
+    require([
+        'echarts',
+        'BMap',
+        'echarts/chart/map'
+    ],
+    function (echarts, BMapExtension) {
+        $('#main').css({
+            height:$('body').height(),
+            width: $('body').width()
+        });
+
+        // 初始化地图
+        var BMapExt = new BMapExtension($('#main')[0], BMap, echarts,{
+            enableMapClick: false
+        });
+        var map = BMapExt.getMap();
+        var container = BMapExt.getEchartsContainer();
+
+         // 设置地图初始中心位置
+       var startPoint = {
+            x: 108.114129,
+            y: 35.850339
+        };
+
+        var point = new BMap.Point(startPoint.x, startPoint.y);
+        map.centerAndZoom(point,6);	//设置地图原始大小 
+        map.enableScrollWheelZoom(true);
+
+        // 地图自定义样式
+        map.setMapStyle({
+            styleJson: [
+                  {
+						//水域地图样式控制
+                       "featureType": "water",
+                       "elementType": "all",
+                       "stylers": {
+                            "color": "#044100"
+                       }
+                  },
+                  {
+						//陆地地图样式控制
+                       "featureType": "land",
+                       "elementType": "all",
+                       "stylers": {
+                            "color": "#004981"
+                       }
+                  },
+ 						//地图边界线样式控制
+                 {
+                       "featureType": "boundary",
+                       "elementType": "geometry",
+                       "stylers": {
+                            "color": "#0049CC"
+                       }
+                  },
+						//地图边界线样式控制
+                 {
+                     "featureType": "railway",
+                       "elementType": "all",
+                       "stylers": {
+                            "visibility": "off"
+                       }
+                  },
+                  {
+                     "featureType": "highway",
+                       "elementType": "geometry",
+                       "stylers": {
+                            "color": "#004981"
+                       }
+                  },
+   						//公路线样式控制
+                 {
+                       "featureType": "highway",
+                       "elementType": "geometry.fill",
+                       "stylers": {
+                            "color": "#005b96",
+                            "lightness": 1
+                       }
+                  },
+                  {
+                       "featureType": "highway",
+                       "elementType": "labels",
+                       "stylers": {
+                            "visibility": "off"
+                       }
+                  },
+                  {
+                       "featureType": "arterial",
+                       "elementType": "geometry",
+                       "stylers": {
+                            "color": "#004981"
+                       }
+                  },
+                  {
+                       "featureType": "arterial",
+                       "elementType": "geometry.fill",
+                       "stylers": {
+                            "color": "#00508b"
+                       }
+                  },
+                  {
+                       "featureType": "poi",
+                       "elementType": "all",
+                       "stylers": {
+                            "visibility": "off"
+                       }
+                  },
+                  {
+                       "featureType": "green",
+                       "elementType": "all",
+                       "stylers": {
+                            "color": "#056197",
+                            "visibility": "off"
+                       }
+                  },
+                  {
+                       "featureType": "subway",
+                       "elementType": "all",
+                       "stylers": {
+                            "visibility": "off"
+                       }
+                  },
+                  {
+                       "featureType": "manmade",
+                       "elementType": "all",
+                       "stylers": {
+                            "visibility": "off"
+                       }
+                  },
+                  {
+                       "featureType": "local",
+                       "elementType": "all",
+                       "stylers": {
+                            "visibility": "off"
+                       }
+                  },
+                  {
+                       "featureType": "arterial",
+                       "elementType": "labels",
+                       "stylers": {
+                            "visibility": "off"
+                       }
+                  },
+                  {
+                       "featureType": "boundary",
+                       "elementType": "geometry.fill",
+                       "stylers": {
+                            "color": "#029fd4"
+                       }
+                  },
+                  {
+                       "featureType": "building",
+                       "elementType": "all",
+                       "stylers": {
+                            "color": "#1a5787"
+                       }
+                  },
+                  {
+                       "featureType": "label",
+                       "elementType": "all",
+                       "stylers": {
+                            "visibility": "off"
+                       }
+                  }
+            ]
+        });
+
+        option = {
+            color: ['gold','aqua','lime'],
+            title : {
+                text: '体检设备地理分布系统',
+                subtext:'怡成网络医院',
+				sublink: 'http://www.yicheng120.com/',
+
+                x:'right',
+                textStyle : {color: 'yellow',fontSize: 18,},
+                subtextStyle : {color: 'yellow',fontSize: 16,}
+            },
+				//鼠标悬浮交互时的信息提示
+            tooltip : {
+                show: true,
+                trigger: 'item',
+                //formatter: '<img src="http://www.yicheng120.com/Public/Title_files/home/logo.png">{b} 设备{c}台',
+                 showContent: true
+           },
+				//可选城市的载入和样式控制
+			//legend: {
+                //orient: 'vertical',
+                //x:'left',
+                ////data:['北京', '上海', '广州'],
+                //data:['北京'],
+                //selectedMode: 'single',
+                //selected:{
+                    //'上海' : false,
+                    //'广州' : false
+                //},
+                //textStyle : {
+                    //color: '#fff'
+                //}
+            //},
+				//工具栏的载入和样式控制
+            toolbox: {
+                show : false,
+                orient : 'vertical',
+                x: 'right',
+                y: 'center',
+                feature : {
+                    mark : {show: true},
+                    dataView : {show: true, readOnly: false},
+                    restore : {show: true},
+                    saveAsImage : {show: true}
+                }
+            },
+				//数据区域控制的载入和样式控制
+            dataRange: {
+                min : 1,
+                max : 50,
+				text:['高','低'],
+                x: 'right',
+				y: '15%',
+				 realtime: false,
+                calculable : true,
+                 color: ['orangered','yellow','lightskyblue'],
+                textStyle:{
+                    color:'#fff'
+                }
+            },
+ 				//标注的数据内容数组和样式控制
+           series : [
+                {
+                    name:'北京',
+                    type:'map',
+                    mapType: 'none',
+                    data:[],
+					itemStyle:{
+						normal:{label:{show:true}},
+						emphasis:{label:{show:true}}
+					},
+
+
+                    geoCoord: {'北京': [116.4551,40.2539],'邢台':[114.30,37.04]
+,'呼伦贝尔':[116.4551,40.2539]
+,'大连':[121.36,38.55]
+,'丹东':[124.22,40.08]
+,'鸡西':[130.57,45.17]
+,'湖州':[120.06,30.52]
+,'黄山':[118.18,29.43]
+,'泰安':[117.08,36.11]
+,'鹤壁':[114.11,35.54]
+,'许昌':[113.49,34.01]
+,'东城区':[116.4551,40.2539]
+,'宝鸡':[107.09,34.22]
+,'渭南':[109.30,34.30]
+,'静安区':[116.4551,40.2539]
+},					//用来产生数据标线内容
+                    markLine : {
+                        smooth:false,	//是否有曲线功能
+						smoothness:0.5,	//如果有的话，曲线弧度是多大？
+
+                        effect : {
+                            show: true,		//标线图形炫光特效是否开启
+                            scaleSize: 3,	//放大倍数
+							loop: true,		//是否循环动画
+                            period: 10,		//运动周期，值越大越慢，默认为15
+                            color: '#fff',	//炫光颜色
+                            shadowBlur: 25,	//光影模糊度
+							shadowColor:'#CCC'	//光影颜色,默认跟随color 
+                        },
+                        itemStyle : {
+                            normal: {
+                                borderWidth:1,
+                                lineStyle: {
+                                    type: 'solid',
+                                    shadowBlur: 10
+                                }
+                            }
+                        },
+                        data : markLinedata
+                    },
+					//用来产生区域热点
+                    markPoint : {
+                        symbol:'emptyCircle',
+                        symbolSize : function (v){
+                            return 10 + v/10
+                        },
+                        effect : {
+                            show: true,
+                            shadowBlur : 0
+                        },
+                        itemStyle:{
+                            normal:{
+                                label:{show:false}
+                            }
+                        },
+                        data : markPointdata
+                    }
+
+                }
+
+            ]
+        };
+
+        var myChart = BMapExt.initECharts(container);
+        window.onresize = myChart.onresize;
+        BMapExt.setOption(option);
+    }
+);
+})();
+//-->
+</script>
+
+    </body>
+</html>

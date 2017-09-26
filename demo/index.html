@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/util.js" ></script>
+		<script>
+			$(document).ready(function() {
+				
+				var timer = setInterval(register, 5000);
+			});
+			function register() {
+				$("#div").html("");
+				var para;
+				ajaxPost("http://api.yicheng120.com/demo/admin/select.php", para, successfulcb, errorcb);
+			}
+			function successfulcb(returnJson){
+				var a=JSON.parse(returnJson);
+				var tb = document.getElementById("targetTable");
+      				for(var i=0;i<a.length;i++){
+      					console.log(a[0]);
+      					var b=a[i];
+      					for(var t=0;t<1;t++){
+//    						var a0=b[0]==1?'测量完成':'正在测量';
+//    						var a1=b[1]==1?'测量完成':'正在测量'; 
+      						var a2=b[2]==0?'<td width=\"9%\"  style="background: greenyellow;">测量完成</td>':b[2]==2?'<td width=\"9%\" style="background: blue;">正在测量</td>':'<td width=\"9%\" style="background: gray;">未测量</td>';
+      						var a3=b[3]==0?'<td width=\"9%\"  style="background: greenyellow;">测量完成</td>':b[3]==2?'<td width=\"9%\" style="background: blue;">正在测量</td>':'<td width=\"9%\" style="background: gray;">未测量</td>';
+      						var a4=b[4]==0?'<td width=\"9%\"  style="background: greenyellow;">测量完成</td>':b[4]==2?'<td width=\"9%\" style="background: blue;">正在测量</td>':'<td width=\"9%\" style="background: gray;">未测量</td>';
+      						var a5=b[5]==0?'<td width=\"9%\"  style="background: greenyellow;">测量完成</td>':b[5]==2?'<td width=\"9%\" style="background: blue;">正在测量</td>':'<td width=\"9%\" style="background: gray;">未测量</td>';
+      						var a6=b[6]==0?'<td width=\"9%\"  style="background: greenyellow;">测量完成</td>':b[6]==2?'<td width=\"9%\" style="background: blue;">正在测量</td>':'<td width=\"9%\" style="background: gray;">未测量</td>';
+      						var a7=b[7]==0?'<td width=\"9%\"  style="background: greenyellow;">测量完成</td>':b[7]==2?'<td width=\"9%\" style="background: blue;">正在测量</td>':'<td width=\"9%\" style="background: gray;">未测量</td>';
+      						var a8=b[8]==0?'<td width=\"9%\"  style="background: greenyellow;">测量完成</td>':b[8]==2?'<td width=\"9%\" style="background: blue;">正在测量</td>':'<td width=\"9%\" style="background: gray;">未测量</td>';
+      						var a9=b[9]==0?'<td width=\"9%\"  style="background: greenyellow;">测量完成</td>':b[9]==2?'<td width=\"9%\" style="background: blue;">正在测量</td>':'<td width=\"9%\" style="background: gray;">未测量</td>';
+      						var a10=b[10]=='wc'?'<td width=\"9%\"  style="background: greenyellow;">测量完成</td>':b[10]=='dd'?'<td width=\"9%\" style="background: blue;">等待测量</td>':'<td width=\"9%\" style="background: gray;">正在测量</td>';
+      						var abc= "<table border=\"1px\" width=\"100%\">  <tr border=\"1px\"><td width=\"9%\">"+b[0]+" <a href='/demo/poweron.php?del=yes&id="+b[0]+"'>删除</td><td width=\"9%\">"+b[1]+"</td>"+a2+a3+a4+a5+a6+a7+a8+a9+a10+"</tr></table>";
+							$("#div").append(abc);
+      					}
+      					
+				
+				}
+			}
+			function errorcb(){}
+		</script>
+	</head>
+
+	<body>
+		
+		 <table border="1px" id="targetTable" width="100%">  
+            <tr border="1px">  
+                <td>序号</td>  
+                <td>卡号</td>  
+                <td>温度</td>  
+                <td>体重</td>  
+                <td>心电</td>
+                <td>血脂</td>
+                <td>尿液</td>
+                <td>血氧</td>
+                <td>血糖</td>
+                <td>尿酸</td>
+                <td>状态</td>
+            </tr>
+        </table>
+        <div id="div">
+        </div>
+	</body>
+
+</html>
