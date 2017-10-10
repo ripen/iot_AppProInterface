@@ -1,6 +1,7 @@
 <?php
 
 namespace Pad\Controller;
+use Pad\Controller\BaseController;
 use Think\Controller;
 
 class InController extends BaseController{
@@ -11,7 +12,15 @@ class InController extends BaseController{
  	public function __construct(){
 		parent::__construct();
 
-		$this->sign				= I('post.sign','','htmlspecialchars,trim');		// 标识检验码
+        // 验证token，用在模块功能的验证，不能放在Base里
+        $this->client_id    =   $this->oauth->verify_access_token();
+        // 检测应用访问权限
+        $this->client_info  =   $this->checkpriv( $this->client_id );
+        // 记录日志
+        $this->visitlog( $this->client_id );
+
+
+		//$this->sign				= I('post.sign','','htmlspecialchars,trim');		// 标识检验码
 
 		$this->infos			= array(
 									'iccardnumber'	=>I('post.iccardnumber','','htmlspecialchars,trim'),	//卡号/身份证

@@ -16,17 +16,8 @@ class BaseController extends Controller {
     	header("Content-Type: application/json");  
         header("Cache-Control: no-store");  
 
-		//ThinkOAuth2.class.php 是属于Server端的OAuth的类
 		$this->oauth = new \Org\OAuth\ThinkOAuth2();
 
-        // 验证token
-        $this->client_id    =   $this->oauth->verify_access_token();
-        // $this->client_id    =   'zumwwj1oey';
-        // 检测应用访问权限
-        $this->client_info  =   $this->checkpriv( $this->client_id );
-
-        // 记录日志
-        $this->visitlog( $this->client_id );
     }
 
     /**
@@ -47,7 +38,7 @@ class BaseController extends Controller {
      * @version V1.0
      */
     public function nopriv(){
-    	oauthjson(10002,'没有权限');
+    	oauthjson(10002,'没有权限!!');
     }
 
 
@@ -86,6 +77,7 @@ class BaseController extends Controller {
      * @return [type]            [description]
      */
     public function checkpriv( $client_id = '' ){
+
         if ( !$client_id ) {
             $this->nopriv();
             exit;
@@ -93,13 +85,10 @@ class BaseController extends Controller {
 
         // 判断应用类型
         $info     =   $this->oauth->get_client_info( $client_id );
-
-        if (!$info || $info['status'] != 3 ) {
+        if (!$info || $info['status'] != 4 ) {
             $this->nopriv();
             exit;
         }
-
-
         return $info;
     }
 }
